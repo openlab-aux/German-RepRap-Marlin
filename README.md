@@ -15,6 +15,63 @@
 Additional documentation can be found at the [Marlin Home Page](https://marlinfw.org/).
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
 
+## Modifications for the Openlab fork
+
+Our Franken-Printer has been fitted with an Einsy Rambo 1.1b, which is the board used in the Prusa i3 printers.
+
+As such, [`Configuration.h`](./Marlin/Configuration.h) and [`Configuration_adv.h`](./Marlin/Configuration_adv.h) have been copied from the [Prusa example configuration](https://github.com/MarlinFirmware/Configurations/tree/bugfix-2.1.x/config/examples/Prusa/MK3).
+
+Furthermore, the `default_env` in [`platformio.ini`](./platformio.ini) has been changed from `mega2560` to `rambo`.
+
+### Compiling and uploading
+
+I recommend using using [PlatformIO](https://platformio.org/) for compilation and flashing.
+It has many advantages over Arduino IDE.
+For example, the required libraries are automatically downloaded.
+There is no need for a complex build script like Prusa uses.
+There is [a fantastic plugin for VSCode](https://platformio.org/install/ide?install=vscode), but you can also use [the command-line utility](https://docs.platformio.org/en/latest/core/) and use whatever text editor you like (like vim).
+
+#### Compiling
+
+Using the command-line utility, compiling is as simple as:
+```
+pio run
+```
+
+This will automatically download all required libraries.
+
+#### Flashing
+
+To flash with the command-line utility:
+```
+pio run --target upload  # Or -t as a shorthand
+```
+
+If you get a strange `AssertionError`, try explicitly setting the upload port:
+```
+pio run -t upload --upload-port /dev/ttyACM0  # Or COMX on Windows
+```
+
+#### Serial monitor
+
+Sometimes, a serial monitor is useful for troubleshooting.
+This is the same as the command window in Pronterface or OctoPrint.
+
+```
+pio device monitor --baud 250000 --port /dev/ttyACM0
+```
+
+### Useful links
+
+- [List of pins with their function and Arduino pin number for the Einsy Rambo](https://www.reprap.org/wiki/EinsyRambo_development)
+
+### Hardware particularities
+
+- Our printer has 2 Y motors and 1 Z motor. The Prusa has 1 Y motor and 2 Z motors. Therefore, we switched the connections for Y and Z. The cables for the Y motors are plugged into the Z motor headers and the cable of the Z motor is plugged into the Y motor header. We also reflected this change in [`pins_EINSY_RAMBO_openlab.h`](./Marlin/src/pins/rambo/pins_EINSY_RAMBO_openlab.h) (the step, dir, enable, and chip select pins were swapped).
+- The X and Y axes use optical endstops. Signal and ground are connected to the normal endstop headers, but these sensors also need 5V, which is taken from a nearby 5V header.
+- We plan to use the BLTouch as the Z endstop and auto bed leveling probe. The bed is glass so is not compatible with an inductive probe.
+- The X and Y endstops are at the axis maximums, not the axis minimums
+
 ## Marlin 2.1 Bugfix Branch
 
 __Not for production use. Use with caution!__
