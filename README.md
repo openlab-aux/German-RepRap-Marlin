@@ -23,6 +23,11 @@ As such, [`Configuration.h`](./Marlin/Configuration.h) and [`Configuration_adv.h
 
 Furthermore, the `default_env` in [`platformio.ini`](./platformio.ini) has been changed from `mega2560` to `rambo`.
 
+### Summary
+
+- XY Homing: Sensorless with TMC2130
+- Z Homing: BLTouch ([setup](https://reprap.org/wiki/EinsyRambo#BLTouch_example))
+
 ### Compiling and uploading
 
 I recommend using using [PlatformIO](https://platformio.org/) for compilation and flashing.
@@ -64,6 +69,8 @@ pio device monitor --baud 250000 --port /dev/ttyACM0
 ### Useful links
 
 - [List of pins with their function and Arduino pin number for the Einsy Rambo](https://www.reprap.org/wiki/EinsyRambo_development)
+- [Einsy Rambo 1.1 Schematics](https://raw.githubusercontent.com/ultimachine/Einsy-Rambo/1.1a/board/Project%20Outputs/Schematic%20Prints_Einsy%20Rambo_1.1a.PDF)
+- [BLTouch 3.1](https://www.antclabs.com/_files/ugd/f5a1c8_d40d077cf5c24918bd25b6524f649f11.pdf)
 
 ### Hardware particularities
 
