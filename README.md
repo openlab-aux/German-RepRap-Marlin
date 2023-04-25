@@ -23,6 +23,22 @@ As such, [`Configuration.h`](./Marlin/Configuration.h) and [`Configuration_adv.h
 
 Furthermore, the `default_env` in [`platformio.ini`](./platformio.ini) has been changed from `mega2560` to `rambo`.
 
+### Todo
+
+- [x] Sensorless homing
+- [x] BLTouch
+- [ ] Probe offset
+- [ ] Bed Levelling
+- [ ] Fan PWM
+- [ ] XY step/mm calibration
+- [ ] Z step/mm calibration
+- [ ] E step/mm calibration
+- [ ] Cable management
+- [ ] Enclosure for electronics
+- [ ] RGB
+- [ ] Lights
+- [ ] Webcam
+
 ### Summary
 
 - XY Homing: Sensorless with TMC2130
