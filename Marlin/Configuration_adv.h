@@ -877,9 +877,9 @@
  * the position of the toolhead relative to the workspace.
  */
 
-//#define SENSORLESS_BACKOFF_MM  { 2, 2, 0 }  // (linear=mm, rotational=°) Backoff from endstops before sensorless homing
+#define SENSORLESS_BACKOFF_MM  { 0, 0, 0 }  // (linear=mm, rotational=°) Backoff from endstops before sensorless homing
 
-#define HOMING_BUMP_MM      { 5, 5, 2 }       // (linear=mm, rotational=°) Backoff from endstops after first bump
+#define HOMING_BUMP_MM      { 0, 0, 0 }       // (linear=mm, rotational=°) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 1, 1, 1 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 #define HOMING_BACKOFF_POST_MM { 12, 10, 0 }  // (linear=mm, rotational=°) Backoff from endstops after homing
@@ -936,7 +936,7 @@
    * differs, a mode set eeprom write will be completed at initialization.
    * Use the option below to force an eeprom write to a V3.1 probe regardless.
    */
-  //#define BLTOUCH_SET_5V_MODE
+  #define BLTOUCH_SET_5V_MODE
 
   /**
    * Safety: Activate if connecting a probe with an unknown voltage mode.
@@ -2234,7 +2234,8 @@
  * For more details see https://marlinfw.org/docs/features/probe_temp_compensation.html
  */
 #if DISABLED(SUPERPINDA)
-  #define PTC_PROBE    // Compensate based on probe temperature
+  // Conflicts with BLTouch
+  // #define PTC_PROBE    // Compensate based on probe temperature
 #endif
 #define PTC_BED        // Compensate based on bed temperature
 //#define PTC_HOTEND   // Compensate based on hotend temperature
@@ -2738,9 +2739,9 @@
 
   #if AXIS_IS_TMC_CONFIG(X)
     #define X_CURRENT       500        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  230        // (mA) RMS current for sensorless homing
+    #define X_CURRENT_HOME  500        // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16        // 0..256
-    #define X_RSENSE          0.2      // Multiplied x1000 for TMC26X2
+    #define X_RSENSE          0.22      // Multiplied x1000 for TMC26X2
     #define X_CHAIN_POS      -1        // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
     //#define X_HOLD_MULTIPLIER 0.5    // Enable to override 'HOLD_MULTIPLIER' for the X axis
@@ -2758,9 +2759,9 @@
 
   #if AXIS_IS_TMC_CONFIG(Y)
     //#define Y_CURRENT       348
-    #define Y_CURRENT       500 // custom
+    #define Y_CURRENT       900 // custom
     //#define Y_CURRENT_HOME  182
-    #define Y_CURRENT_HOME  260  // custom
+    #define Y_CURRENT_HOME  900  // custom
     #define Y_MICROSTEPS     16
     #define Y_RSENSE       0.22
     #define Y_CHAIN_POS      -1
@@ -2779,8 +2780,8 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(Z)
-    #define Z_CURRENT       530
-    #define Z_CURRENT_HOME  348
+    #define Z_CURRENT       900
+    #define Z_CURRENT_HOME  900
     #define Z_MICROSTEPS     16
     #define Z_RSENSE       0.22
     #define Z_CHAIN_POS      -1
@@ -3177,7 +3178,7 @@
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    * @section tmc/stallguard
    */
-  // #define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
@@ -3211,7 +3212,7 @@
    *
    * Values from 0..1023, -1 to disable homing phase for that axis.
    */
-   #define TMC_HOME_PHASE { 640, 640, -1 }
+   #define TMC_HOME_PHASE { 640, 384, -1 }
 
   /**
    * Beta feature!
