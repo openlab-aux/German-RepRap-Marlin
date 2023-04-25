@@ -79,6 +79,19 @@ pio device monitor --baud 250000 --port /dev/ttyACM0
 - We plan to use the BLTouch as the Z endstop and auto bed leveling probe. The bed is glass so is not compatible with an inductive probe.
 - The X and Y endstops are at the axis maximums, not the axis minimums
 
+### Photos
+
+![Einsy Rambo 1.1](./docs/images/eisny_rambo_1_1.png)
+![BLTouch Wiring](./docs/images/bltouch_wiring.jpg)
+
+### Useful G-Code
+
+- [`M119`: Endstop States](https://marlinfw.org/docs/gcode/M119.html)
+- [`M500`: Save Settings to EEPROM](https://marlinfw.org/docs/gcode/M500.html)
+- [`M503`: Report Settings in EEPROM](https://marlinfw.org/docs/gcode/M503.html)
+- [`M914`: Sensorless Homing Sensitivity](https://marlinfw.org/docs/gcode/M914.html)
+- [`M92`: Set Axis Steps-per-unit](https://marlinfw.org/docs/gcode/M092.html)
+
 ## Marlin 2.1 Bugfix Branch
 
 __Not for production use. Use with caution!__
