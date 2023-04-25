@@ -41,8 +41,8 @@
 
 // TMC2130 Diag Pins (currently just for reference)
 #define X_DIAG_PIN                            64
-#define Y_DIAG_PIN                            69
-#define Z_DIAG_PIN                            68
+#define Y_DIAG_PIN                            68
+#define Z_DIAG_PIN                            69
 #define E0_DIAG_PIN                           65
 
 //
