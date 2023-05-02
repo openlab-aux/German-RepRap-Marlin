@@ -27,11 +27,11 @@ Furthermore, the `default_env` in [`platformio.ini`](./platformio.ini) has been 
 
 - [x] Sensorless homing
 - [x] BLTouch
-- [ ] Probe offset
-- [ ] Bed Levelling
+- [x] Probe offset
+- [x] Bed Levelling
 - [ ] Fan PWM
 - [ ] XY step/mm calibration
-- [ ] Z step/mm calibration
+- [x] Z step/mm calibration
 - [ ] E step/mm calibration
 - [ ] Cable management
 - [ ] Enclosure for electronics
