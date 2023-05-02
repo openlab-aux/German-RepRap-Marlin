@@ -1197,18 +1197,14 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#if ENABLED(GEARBOX_BEAR)
-  #define DEFAULT_AXIS_STEPS_PER_UNIT { 100, 100, 3200/8, 490 }
-#else
-  #define DEFAULT_AXIS_STEPS_PER_UNIT { 66.67, 66.67, 1600, 280 }
-#endif
+#define DEFAULT_AXIS_STEPS_PER_UNIT { 66.67, 66.67, 2403, 280 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 100, 100, 12, 120 }
+#define DEFAULT_MAX_FEEDRATE          { 100, 100, 5, 120 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1740,14 +1736,10 @@
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
 #define Y_MIN_POS -4
-#define Z_MIN_POS 0.15
+#define Z_MIN_POS 0
 #define X_MAX_POS 300
 #define Y_MAX_POS 300
-#if ENABLED(TALLBEAR)
- #define Z_MAX_POS 320
-#else
- #define Z_MAX_POS 210
-#endif
+#define Z_MAX_POS 400
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2148,7 +2140,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (50*60), (20*60), (10*60) }
+#define HOMING_FEEDRATE_MM_M { (50*60), (20*60), 100 }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
