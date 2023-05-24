@@ -29,10 +29,10 @@ Furthermore, the `default_env` in [`platformio.ini`](./platformio.ini) has been 
 - [x] BLTouch
 - [x] Probe offset
 - [x] Bed Levelling
-- [ ] Fan PWM
-- [ ] XY step/mm calibration
+- [x] Fan PWM
+- [x] XY step/mm calibration
 - [x] Z step/mm calibration
-- [ ] E step/mm calibration
+- [x] E step/mm calibration
 - [ ] Cable management
 - [ ] Enclosure for electronics
 - [ ] RGB
