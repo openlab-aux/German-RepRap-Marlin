@@ -172,3 +172,4 @@ __pycache__
 *_log.csv
 
 venv
+.ccls-cache
