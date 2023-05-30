@@ -67,6 +67,7 @@
 
 // Disable this for FAN_PIN 8 and FAN1_PIN 6
 #define MK3_FAN_PINS
+#define NO_MK3_FAN_PINS_WARNING
 
 // Is printer equipped with a 3.5:1 gearbox on the extruder?
 //#define GEARBOX_BEAR
