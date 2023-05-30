@@ -2195,10 +2195,10 @@
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
-  #define MESH_MIN_X 24
-  #define MESH_MIN_Y 6
-  #define MESH_MAX_X 228
-  #define MESH_MAX_Y 210
+  #define MESH_MIN_X X_MIN_POS
+  #define MESH_MIN_Y Y_MIN_POS
+  #define MESH_MAX_X X_MAX_POS
+  #define MESH_MAX_Y Y_MAX_POS
 #endif
 
 #if BOTH(AUTO_BED_LEVELING_UBL, EEPROM_SETTINGS)
