@@ -60,19 +60,21 @@
   #define X_STOP_PIN                          12
   #define Y_STOP_PIN                          11
   #define Y_STOP_PIN                          11
-  #define Z_STOP_PIN                          10
+  #define Z_STOP_PIN                          20  // EXT P3
+  #define SERVO0_PIN                          10  // Normally Z-MIN
 
 #else
 
-  #define X_STOP_PIN                  X_DIAG_PIN
-  #define Y_STOP_PIN                  Y_DIAG_PIN
+  // #define X_STOP_PIN                  X_DIAG_PIN
+  // #define Y_STOP_PIN                  Y_DIAG_PIN
 
-  #if ENABLED(BLTOUCH)
-    #define Z_STOP_PIN                        11  // Y-MIN
-    #define SERVO0_PIN                        10  // Z-MIN
-  #else
-    #define Z_STOP_PIN                        10
-  #endif
+  // #if ENABLED(BLTOUCH)
+  //   #define Z_STOP_PIN                        20  // EXT P3
+  //   #define SERVO0_PIN                        10  // Z-MIN
+  // #else
+  //   error
+  //   #define Z_STOP_PIN                        10
+  // #endif
 
 #endif
 
