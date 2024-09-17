@@ -1732,8 +1732,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 364
-#define Y_BED_SIZE 405
+#define X_BED_SIZE 350
+#define Y_BED_SIZE 350
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1741,7 +1741,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 400
+#define Z_MAX_POS 350
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2030,8 +2030,8 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 25              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 8       // Don't use more than 15 points per axis, implementation limited.
-  #define GRID_MAX_POINTS_Y 8
+  #define GRID_MAX_POINTS_X 5       // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_Y 5
 
   // #define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
 
